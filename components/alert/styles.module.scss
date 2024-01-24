@@ -1,0 +1,17 @@
+.alertMessageContainer {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  padding: 10px;
+  font-size: 14px;
+
+  color: var(--background-color);
+  background-color: var(--title-color);
+
+  &.success {
+    background-color: var(--success-hover-color);
+  }
+  &.error {
+    background-color: var(--error-color);
+  }
+}

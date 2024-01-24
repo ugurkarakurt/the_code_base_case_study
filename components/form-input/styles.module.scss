@@ -1,0 +1,16 @@
+.formInputContainer {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 5px;
+  input {
+    border: 1px solid var(--border-color);
+    height: 40px;
+    outline: none;
+    padding: 0 10px;
+  }
+
+  label {
+    font-size: 12px;
+    font-weight: bold;
+  }
+}

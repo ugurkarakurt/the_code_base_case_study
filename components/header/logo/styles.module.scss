@@ -1,0 +1,15 @@
+.logoContainer {
+  position: relative;
+  cursor: pointer;
+  &:hover {
+    .logo {
+      filter: drop-shadow(0px 0px 2px #c89b3c);
+    }
+  }
+  .logo {
+    transition: filter 0.2s ease-in-out;
+    width: auto;
+    height: 80px;
+    object-fit: contain;
+  }
+}

@@ -1,0 +1,23 @@
+@import "./reset.scss";
+@import "./colors.scss";
+@import "./animations";
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+  padding-left: calc(100vw - 100%);
+
+  main {
+    width: 1200px;
+    height: 100%;
+    @media (max-width: 1200px) {
+      width: 100%;
+      padding: 0 20px;
+    }
+  }
+}

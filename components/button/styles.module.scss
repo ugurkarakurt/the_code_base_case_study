@@ -1,0 +1,27 @@
+.baseButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  color: var(--background-color);
+  background: var(--title-color);
+  transition: background 0.2s ease-in-out;
+  padding: 5px 10px;
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+  &.submitButton {
+    background: var(--success-color);
+    color: var(--background-color);
+    &:hover {
+      background: var(--success-hover-color);
+    }
+  }
+}

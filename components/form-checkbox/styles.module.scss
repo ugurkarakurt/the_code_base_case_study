@@ -1,0 +1,40 @@
+.formCheckboxContainer {
+  gap: 5px;
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    &:checked {
+      & ~ label {
+        &::before {
+          color: var(--border-color);
+        }
+      }
+    }
+  }
+
+  label {
+    font-size: 12px;
+    font-weight: bold;
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    user-select: none;
+    &::before {
+      border: 1px solid var(--border-color);
+      content: "\2713";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      height: 20px;
+      width: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: transparent;
+    }
+  }
+}
