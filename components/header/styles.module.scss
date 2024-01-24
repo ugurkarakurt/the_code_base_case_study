@@ -4,7 +4,8 @@
   display: flex;
   justify-content: center;
   align-items: stretch;
-
+  position: relative;
+  z-index: 99;
   .headerContainer {
     width: 1200px;
     display: flex;

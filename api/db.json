@@ -5,7 +5,7 @@
       "title": "Mercedes-AMG A 45 S 4MATIC+",
       "image_url": "https://mercedes-benz-media.co.uk/assets/images/thumbnail-true/44959-Large43109MercedesAMGA45S.jpg",
       "last_update_date": "2024-01-24T01:10:00.851Z",
-      "favorite_count": 0,
+      "favorite_count": 6,
       "urgent": false
     },
     {
@@ -13,7 +13,7 @@
       "title": "Mercedes-Benz E 300",
       "image_url": "https://mercedes-benz-media.co.uk/assets/images/thumbnail-true/44958-2311E300e0099.jpg",
       "last_update_date": "2024-01-24T02:10:00.851Z",
-      "favorite_count": 5,
+      "favorite_count": 6,
       "urgent": true
     },
     {
@@ -21,7 +21,7 @@
       "title": "Mercedes GLC 300 e SUV",
       "image_url": "https://mercedes-benz-media.co.uk/assets/images/thumbnail-true/44957-Large41493GLC300eSUV.jpg",
       "last_update_date": "2024-01-24T01:14:00.851Z",
-      "favorite_count": 7,
+      "favorite_count": 11,
       "urgent": false
     },
     {
@@ -37,23 +37,15 @@
       "title": "Mercedes-AMG SL 63 S E PERFORMANCE",
       "image_url": "https://mercedes-benz-media.co.uk/assets/images/thumbnail-true/44888-23c0424001.jpg",
       "last_update_date": "2024-01-24T12:10:00.851Z",
-      "favorite_count": 1,
+      "favorite_count": 6,
       "urgent": false
-    },
-    {
-      "id": 6,
-      "title": "EQE SUV",
-      "image_url": "https://mercedes-benz-media.co.uk/assets/images/thumbnail-true/44739-2310EQESUV0010.jpg",
-      "last_update_date": "2024-01-23T04:10:00.851Z",
-      "favorite_count": 0,
-      "urgent": true
     },
     {
       "id": 7,
       "title": "Mercedes-AMG SL wins The Sunday Times ‘Legend Car of The Year’ Award",
       "image_url": "https://mercedes-benz-media.co.uk/assets/images/thumbnail-true/44408-Large41184MercedesAMGSL554MATIC.jpg",
       "last_update_date": "2024-01-22T00:10:00.851Z",
-      "favorite_count": 1,
+      "favorite_count": 6,
       "urgent": false
     }
   ]

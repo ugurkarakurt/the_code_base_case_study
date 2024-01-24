@@ -1,6 +1,6 @@
 import HomePageContainer from "@/containers/home";
 
-const Home = () => {
+const Home = async () => {
   return (
     <HomePageContainer />
   );
