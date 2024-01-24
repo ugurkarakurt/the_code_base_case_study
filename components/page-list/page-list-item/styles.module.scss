@@ -24,6 +24,63 @@
     flex: 1 1;
     position: relative;
     overflow: hidden;
+    .itemActions {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      z-index: 9;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      .favoriteButton,
+      .deleteButton {
+        border-radius: 50%;
+        background-color: var(--background-color);
+        width: 25px;
+        height: 25px;
+        padding: 5px;
+        padding-top: 6px;
+        cursor: pointer;
+        &:hover {
+          .favoriteIcon,
+          .deleteIcon {
+            filter: invert(14%) sepia(84%) saturate(4396%) hue-rotate(353deg) brightness(97%) contrast(105%);
+          }
+        }
+
+        .favoriteIcon,
+        .deleteIcon {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          transition: filter 0.2s ease-in-out;
+        }
+      }
+    }
+
+    .fireBadge {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      z-index: 9;
+      height: 25px;
+      padding: 5px 10px;
+      background-color: var(--background-color);
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      font-weight: bold;
+      gap: 5px;
+      color: var(--error-color);
+      .fireIcon {
+        height: 100%;
+        width: auto;
+        object-fit: contain;
+      }
+    }
+
     .itemHeaderImage {
       position: absolute;
       width: 100%;

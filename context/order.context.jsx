@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect, useContext } from 'react';
 import { get, post, remove } from '@/services/request';
+import { sortItems } from '@/utils/sorting';
 
 export const OrdersContext = createContext();
 
@@ -9,7 +10,8 @@ export const useRecords = () => {
 
 export const OrdersProvider = ({ children }) => {
   const [ordersMap, setOrdersMap] = useState([]);
-  const [filteredRecords, setFilteredRecords] = useState([]);
+  const [filteredOrders, setFilteredOrders] = useState([]);
+  const [sortingKey, setSortingKey] = useState('sortLastAdded');
 
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -18,8 +20,15 @@ export const OrdersProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    setFilteredRecords(ordersMap);
+    setFilteredOrders(ordersMap);
   }, [ordersMap]);
+
+  useEffect(() => {
+    if (ordersMap) {
+      const sortedOrders = sortItems([...filteredOrders], sortingKey);
+      setFilteredOrders(sortedOrders);
+    }
+  }, [sortingKey]);
 
   const getRecordList = async () => {
     const ordersData = await get(apiUrl);
@@ -35,7 +44,9 @@ export const OrdersProvider = ({ children }) => {
   const value = {
     ordersMap,
     addOrderToList,
-    filteredRecords
+    filteredOrders,
+    sortingKey,
+    setSortingKey
   };
 
   return (

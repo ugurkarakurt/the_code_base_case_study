@@ -11,6 +11,7 @@ body {
   flex-direction: column;
   gap: 50px;
   padding-left: calc(100vw - 100%);
+  background-color: var(--background-color);
 
   main {
     width: 1200px;
