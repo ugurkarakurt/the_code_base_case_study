@@ -7,7 +7,11 @@ import DropdownIconEmpty from './sort-icon-empty.png';
 
 const ListActions = () => {
   const { sortingKey, setSortingKey } = useContext(OrdersContext);
-  const handleClickBySorterItems = (sortingValue) => setSortingKey(sortingValue);
+
+  const handleClickBySorterItems = (sortingValue) => {
+    setSortingKey(sortingValue)
+    localStorage.setItem("sortingKey", sortingValue);
+  };
 
   return (
     <div className='listActionsContainer'>

@@ -65,7 +65,7 @@ const AddForm = () => {
         }).then(() => {
           setTimeout(() => {
             router.push("/")
-          }, 2000);
+          }, 1000);
         })
     }
   };

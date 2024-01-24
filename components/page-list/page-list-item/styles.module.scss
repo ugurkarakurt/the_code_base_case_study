@@ -42,7 +42,7 @@
         padding-top: 6px;
         cursor: pointer;
         &:hover {
-          .favoriteIcon,
+          .empty,
           .deleteIcon {
             filter: invert(14%) sepia(84%) saturate(4396%) hue-rotate(353deg) brightness(97%) contrast(105%);
           }
@@ -53,7 +53,6 @@
           width: 100%;
           height: 100%;
           object-fit: contain;
-          transition: filter 0.2s ease-in-out;
         }
       }
     }

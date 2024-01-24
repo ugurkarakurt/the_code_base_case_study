@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect, useContext } from 'react';
-import { get, post, remove } from '@/services/request';
+import { get, post, patch, remove } from '@/services/request';
 import { sortItems } from '@/utils/sorting';
 
 export const OrdersContext = createContext();
@@ -11,42 +11,59 @@ export const useRecords = () => {
 export const OrdersProvider = ({ children }) => {
   const [ordersMap, setOrdersMap] = useState([]);
   const [filteredOrders, setFilteredOrders] = useState([]);
-  const [sortingKey, setSortingKey] = useState('sortLastAdded');
+  const [sortingKey, setSortingKey] = useState('');
 
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
-    getRecordList();
+    getOrderList();
   }, []);
 
   useEffect(() => {
-    setFilteredOrders(ordersMap);
+    const key = localStorage.getItem("sortingKey");
+    key ? setSortingKey(key) : setSortingKey("sortLastAdded");
+    const sortedOrders = sortItems([...ordersMap], key ? key : "sortLastAdded");
+    setFilteredOrders(sortedOrders);
   }, [ordersMap]);
 
   useEffect(() => {
-    if (ordersMap) {
-      const sortedOrders = sortItems([...filteredOrders], sortingKey);
-      setFilteredOrders(sortedOrders);
-    }
+    const sortedOrders = sortItems([...filteredOrders], sortingKey);
+    setFilteredOrders(sortedOrders);
   }, [sortingKey]);
 
-  const getRecordList = async () => {
+  const getOrderList = async () => {
     const ordersData = await get(apiUrl);
     setOrdersMap(ordersData);
   }
 
   const addOrderToList = async (recordToAdd) => {
     const response = await post(apiUrl, recordToAdd);
-    getRecordList()
+    getOrderList()
     return response;
   }
+
+  const increaseOrderFavoriteCount = async (orderToEdit) => {
+    const { id } = orderToEdit;
+    const response = await patch(`${apiUrl}/${id}`, orderToEdit);
+    getOrderList();
+    return response;
+  }
+
+  const removeOrderFromList = async (orderToRemove) => {
+    const { id } = orderToRemove;
+    const response = await remove(`${apiUrl}/${id}`);
+    getOrderList()
+    return response;
+  };
 
   const value = {
     ordersMap,
     addOrderToList,
     filteredOrders,
     sortingKey,
-    setSortingKey
+    setSortingKey,
+    removeOrderFromList,
+    increaseOrderFavoriteCount
   };
 
   return (

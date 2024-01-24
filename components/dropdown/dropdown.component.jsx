@@ -42,7 +42,7 @@ const Dropdown = ({ options, selectedOption, onOptionClicked, emptyIcon, icon })
       {isOpen && (
         <div className={styles.dropdown}>
           {options.map((option) => (
-            <div className={`${styles.dropdownItem} ${option.sortingKey === selectedOption ? 'active' : ''}`} onClick={() => onOptionClicked(option.sortingKey)} key={option.sortingKey}>
+            <div className={`${styles.dropdownItem} ${option.sortingKey === selectedOption ? `${styles.active}` : ''}`} onClick={() => onOptionClicked(option.sortingKey)} key={option.sortingKey}>
               {option.text}
             </div>
           ))}
