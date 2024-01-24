@@ -7,17 +7,3 @@
   --success-hover-color: #0094a5;
   --error-color: #db1515;
 }
-
-html[data-theme="light"] {
-  --background-color: #ffffff;
-  --title-color: #010101;
-  --description-color: #785a28;
-  --border-color: #c89b3c;
-}
-
-html[data-theme="dark"] {
-  --background-color: #010101;
-  --title-color: #ffffff;
-  --description-color: #e6e6e6;
-  --border-color: #bac2cc;
-}

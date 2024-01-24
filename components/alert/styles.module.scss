@@ -4,6 +4,10 @@
   bottom: 30px;
   padding: 10px;
   font-size: 14px;
+  @media (max-width: 576px) {
+    right: 0;
+    margin-left: 20px;
+  }
 
   color: var(--background-color);
   background-color: var(--title-color);

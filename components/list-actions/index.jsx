@@ -3,13 +3,17 @@ import Dropdown from '../dropdown/dropdown.component';
 import { OrdersContext } from '@/context/order.context';
 import DropdownIcon from './sort-icon.png';
 import DropdownIconEmpty from './sort-icon-empty.png';
+import { useRouter } from 'next/navigation';
+
 
 
 const ListActions = () => {
+  const router = useRouter();
   const { sortingKey, setSortingKey } = useContext(OrdersContext);
 
   const handleClickBySorterItems = (sortingValue) => {
-    setSortingKey(sortingValue)
+    setSortingKey(sortingValue);
+    router.replace(`/?sorting=${sortingValue}`);
     localStorage.setItem("sortingKey", sortingValue);
   };
 
