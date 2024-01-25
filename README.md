@@ -10,8 +10,8 @@ API URL = [API](https://orders-rest-api.vercel.app/)
 #### A list project was created with this case study.
 
 - Project written in Next.js
-- My object was converted into a Restful API with Node.js and launched on the Netlify platform.
-- The project itself was also deployed on Netlify.
+- My object was converted into a Restful API with Node.js and launched on the Vercel platform.
+- The project itself was also deployed on Vercel.
 - The API I wrote supports GET, POST, PATCH and DELETE methods.
 - In the project, a dynamic structure was established by paying attention to React rendering and state management. Context API was used to provide and manage this structure.
 - Sass was used for the css part. In this context, examples of dynamic operations with scss are available in the project.
