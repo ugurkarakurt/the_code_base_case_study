@@ -10,8 +10,7 @@ export const useRecords = () => {
 
 export const OrdersProvider = ({ children }) => {
   const [ordersMap, setOrdersMap] = useState([]);
-  const [filteredOrders, setFilteredOrders] = useState([]);
-  const [sortingKey, setSortingKey] = useState('');
+  const [sortingKey, setSortingKey] = useState();
 
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -19,21 +18,12 @@ export const OrdersProvider = ({ children }) => {
     getOrderList();
   }, []);
 
-  useEffect(() => {
-    const key = localStorage.getItem("sortingKey");
-    key ? setSortingKey(key) : setSortingKey("sortLastAdded");
-    const sortedOrders = sortItems([...ordersMap], key ? key : "sortLastAdded");
-    setFilteredOrders(sortedOrders);
-  }, [ordersMap]);
-
-  useEffect(() => {
-    const sortedOrders = sortItems([...filteredOrders], sortingKey);
-    setFilteredOrders(sortedOrders);
-  }, [sortingKey]);
-
   const getOrderList = async () => {
-    const ordersData = await get(apiUrl);
-    setOrdersMap(ordersData);
+    const apiData = await get(apiUrl);
+    const sortingKey = apiData.sortingKey.key;
+    const sortedOrders = sortItems([...apiData.orders], sortingKey);
+    setSortingKey(sortingKey);
+    setOrdersMap(sortedOrders);
   }
 
   const addOrderToList = async (recordToAdd) => {
@@ -56,14 +46,19 @@ export const OrdersProvider = ({ children }) => {
     return response;
   };
 
+  const setSortingType = async (sortingKey) => {
+    const response = await patch(`${apiUrl}/sortingKey`, { key: sortingKey });
+    getOrderList();
+    return response;
+  }
+
   const value = {
     ordersMap,
-    addOrderToList,
-    filteredOrders,
     sortingKey,
-    setSortingKey,
+    addOrderToList,
     removeOrderFromList,
-    increaseOrderFavoriteCount
+    increaseOrderFavoriteCount,
+    setSortingType
   };
 
   return (

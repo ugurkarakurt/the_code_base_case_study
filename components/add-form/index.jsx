@@ -5,8 +5,8 @@ import styles from "./styles.module.scss";
 import FormCheckbox from '../form-checkbox';
 import Button from '../button/button';
 import { validateForm } from '@/utils/validation';
-import AlertMessage from '../alert/alert-message.component';
 import { OrdersContext } from '@/context/order.context';
+import { AlertContext } from '@/context/alert';
 
 const defaultFormFields = {
   title: "",
@@ -17,12 +17,13 @@ const defaultFormFields = {
 
 const AddForm = () => {
   const { addOrderToList } = useContext(OrdersContext);
+  const { showAlert } = useContext(AlertContext);
+
 
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { title, image_url, urgent } = formFields;
 
   const [validationErrors, setValidationErrors] = useState({});
-  const [alertMessage, setAlertMessage] = useState(null);
   const router = useRouter();
 
 
@@ -39,19 +40,19 @@ const AddForm = () => {
     const errors = validateForm(formFields);
 
     if (Object.keys(errors).length > 0) {
-
       console.error('Validation Errors:', errors);
       setValidationErrors(errors);
-      setAlertMessage({ type: 'error', content: 'Form hatalı, lütfen kontrol ediniz.' });
-
+      showAlert({
+        isShow: true,
+        alertType: 'error',
+        alertContent: "Form hatalı, lütfen kontrol ediniz.",
+      });
     } else {
-
       const formattedDate = new Date();
       const postData = {
         ...formFields,
         last_update_date: formattedDate,
       };
-
       addOrderToList(postData)
         .then((response) => {
           if (response.error_code) {
@@ -61,7 +62,11 @@ const AddForm = () => {
         }).then(() => {
           console.log('Form submitted successfully!');
           setValidationErrors({});
-          setAlertMessage({ type: 'success', content: 'İlan başarı ile kaydedilmiştir. Anasayfaya yönlendiriliyorsunuz.' });
+          showAlert({
+            isShow: true,
+            alertType: 'success',
+            alertContent: "İlan başarı ile kaydedilmiştir. Anasayfaya yönlendiriliyorsunuz.",
+          });
         }).then(() => {
           setTimeout(() => {
             router.push("/")
@@ -105,12 +110,6 @@ const AddForm = () => {
 
         <Button onClick={handleSubmit} buttonType="submitButton" link="/add-order" children="Yeni İlan Ekle" />
       </form>
-      {alertMessage && (
-        <AlertMessage
-          alertType={alertMessage.type}
-          alertContent={alertMessage.content}
-        />
-      )}
     </div>
   );
 }

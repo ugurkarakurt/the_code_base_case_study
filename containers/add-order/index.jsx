@@ -4,14 +4,19 @@ import styles from "./styles.module.scss";
 import { OrdersProvider } from '@/context/order.context';
 import PageTitle from '@/components/page-title';
 import AddForm from '@/components/add-form';
+import { AlertProvider } from '@/context/alert';
+import AlertMessage from '@/components/alert/alert-message.component';
 
 const AddOrderPageContainer = () => {
   return (
     <div className={styles.addOrderContainer}>
-      <OrdersProvider>
-        <PageTitle title={"YENİ İLAN"} subTitle={"Ekle"} />
-        <AddForm />
-      </OrdersProvider>
+      <AlertProvider>
+        <OrdersProvider>
+          <PageTitle title={"YENİ İLAN"} subTitle={"Ekle"} />
+          <AddForm />
+          <AlertMessage />
+        </OrdersProvider>
+      </AlertProvider>
     </div>
   );
 }

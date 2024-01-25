@@ -5,11 +5,11 @@ import styles from "./styles.module.scss";
 import { OrdersContext } from '@/context/order.context';
 
 const PageList = () => {
-  const { filteredOrders } = useContext(OrdersContext);
+  const { ordersMap } = useContext(OrdersContext);
 
   return (
     <div className={styles.pageListContainer}>
-      {filteredOrders.map((order) => (
+      {ordersMap.map((order) => (
         <Fragment key={order.id}>
           <PageListItem order={order} />
         </Fragment>

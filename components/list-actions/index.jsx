@@ -4,18 +4,22 @@ import { OrdersContext } from '@/context/order.context';
 import DropdownIcon from './sort-icon.png';
 import DropdownIconEmpty from './sort-icon-empty.png';
 import { useRouter } from 'next/navigation';
-
-
+import { AlertContext } from '@/context/alert';
 
 const ListActions = () => {
   const router = useRouter();
-  const { sortingKey, setSortingKey } = useContext(OrdersContext);
+  const { setSortingType, sortingKey } = useContext(OrdersContext);
+  const { showAlert } = useContext(AlertContext);
 
-  const handleClickBySorterItems = (sortingValue) => {
-    setSortingKey(sortingValue);
-    router.replace(`/?sorting=${sortingValue}`);
-    localStorage.setItem("sortingKey", sortingValue);
-  };
+  const handleClickBySorterItems = (sortingValue) => setSortingType(sortingValue)
+    .then(() => {
+      router.replace(`/?sorting=${sortingKey}`);
+      showAlert({
+        isShow: true,
+        alertType: 'info',
+        alertContent: `Liste Tekrar Sıralandı`,
+      });
+    })
 
   return (
     <div className='listActionsContainer'>
