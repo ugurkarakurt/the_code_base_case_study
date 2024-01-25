@@ -27,21 +27,21 @@ export const OrdersProvider = ({ children }) => {
   }
 
   const addOrderToList = async (recordToAdd) => {
-    const response = await post(apiUrl, recordToAdd);
+    const response = await post(`${apiUrl}/orders`, recordToAdd);
     getOrderList()
     return response;
   }
 
   const increaseOrderFavoriteCount = async (orderToEdit) => {
     const { id } = orderToEdit;
-    const response = await patch(`${apiUrl}/${id}`, orderToEdit);
+    const response = await patch(`${apiUrl}/orders/${id}`, orderToEdit);
     getOrderList();
     return response;
   }
 
   const removeOrderFromList = async (orderToRemove) => {
     const { id } = orderToRemove;
-    const response = await remove(`${apiUrl}/${id}`);
+    const response = await remove(`${apiUrl}/orders/${id}`);
     getOrderList()
     return response;
   };
