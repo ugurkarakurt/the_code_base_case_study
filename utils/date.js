@@ -2,7 +2,6 @@ const parseISODate = (isoDateString) => {
   return new Date(isoDateString);
 };
 
-
 export const formatToCustomDate = (date) => {
   const isoDate = parseISODate(date)
   const day = isoDate.getDate();

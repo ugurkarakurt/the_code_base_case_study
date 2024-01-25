@@ -34,11 +34,18 @@ export const AlertProvider = ({ children }) => {
     if (timeoutID) {
       clearTimeout(timeoutID);
     }
-
     setAlert({ ...alert, isShow: false });
   };
 
-  const value = { alert, showAlert, hideAlert };
+  const value = {
+    alert,
+    showAlert,
+    hideAlert
+  };
 
-  return <AlertContext.Provider value={value}>{children}</AlertContext.Provider>;
+  return (
+    <AlertContext.Provider value={value}>
+      {children}
+    </AlertContext.Provider>
+  );
 };
