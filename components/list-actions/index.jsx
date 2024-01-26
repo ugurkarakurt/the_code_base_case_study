@@ -13,7 +13,7 @@ const ListActions = () => {
 
   const handleClickBySorterItems = (sortingValue) => setSortingType(sortingValue)
     .then(() => {
-      router.replace(`/?sorting=${sortingKey}`);
+      router.replace(`/?sorting=${sortingValue}`);
       showAlert({
         isShow: true,
         alertType: 'info',
