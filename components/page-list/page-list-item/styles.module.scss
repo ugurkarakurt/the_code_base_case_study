@@ -2,14 +2,17 @@
   height: 300px;
   display: flex;
   flex-direction: column;
-  border: 10px solid;
-  border-width: 1px;
-  border-image-source: linear-gradient(to left, transparent, var(--border-color), transparent);
-  border-left: 0;
-  border-right: 0;
-  border-top: 0;
-  border-image-slice: 1;
   cursor: default;
+
+  &:not(:nth-last-child(-n + 4)) {
+    border: 10px solid;
+    border-width: 1px;
+    border-image-source: linear-gradient(to left, transparent, var(--border-color), transparent);
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-image-slice: 1;
+  }
 
   &:hover {
     .itemHeader {
