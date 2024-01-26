@@ -3,9 +3,9 @@ import { useRouter } from 'next/navigation';
 import FormInput from '../form-input';
 import styles from "./styles.module.scss";
 import FormCheckbox from '../form-checkbox';
-import Button from '../button/button';
+import Button from '../button';
 import { validateForm } from '@/utils/validation';
-import { OrdersContext } from '@/context/order.context';
+import { OrdersContext } from '@/context/order';
 import { AlertContext } from '@/context/alert';
 
 const defaultFormFields = {

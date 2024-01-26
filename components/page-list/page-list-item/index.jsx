@@ -7,7 +7,7 @@ import FireICon from "./fire-icon.png"
 import NoImagePlaceholder from "./no-image.jpg"
 import { formatToCustomDate } from '@/utils/date';
 import Image from 'next/image';
-import { OrdersContext } from '@/context/order.context';
+import { OrdersContext } from '@/context/order';
 import { checkImage } from '@/utils/checkImage';
 import { AlertContext } from '@/context/alert';
 
@@ -77,13 +77,13 @@ const PageListItem = ({ order }) => {
         )}
         {isImageValid ? (
           <img
-            className={styles.itemHeaderImage}
+            className={`${styles.itemHeaderImage} bounce_animation`}
             src={order.image_url}
             alt='order_image'
           />
         ) : (
           <Image
-            className={styles.NoImagePlaceholder}
+            className={`${styles.NoImagePlaceholder} bounce_animation`}
             src={NoImagePlaceholder}
             alt='fire_badge_icon'
           />

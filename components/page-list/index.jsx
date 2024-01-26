@@ -1,7 +1,7 @@
 import React, { Fragment, useContext } from 'react';
 import PageListItem from './page-list-item';
 import styles from "./styles.module.scss";
-import { OrdersContext } from '@/context/order.context';
+import { OrdersContext } from '@/context/order';
 import OrderLoading from './loading';
 
 const PageList = () => {

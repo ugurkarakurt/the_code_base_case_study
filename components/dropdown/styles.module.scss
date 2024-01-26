@@ -30,7 +30,6 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    animation: slide-bottom 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) both;
     z-index: 10;
     background-color: var(--background-color);
     box-shadow:
@@ -57,16 +56,5 @@
         color: var(--border-color);
       }
     }
-  }
-}
-
-@keyframes slide-bottom {
-  0% {
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
   }
 }

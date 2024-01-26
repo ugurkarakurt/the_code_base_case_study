@@ -1,13 +1,13 @@
 "use client"
 
 import React from 'react';
-import { OrdersProvider } from '@/context/order.context';
+import { OrdersProvider } from '@/context/order';
 import { AlertProvider } from '@/context/alert';
 import PageTitle from '@/components/page-title';
 import styles from "./styles.module.scss";
 import PageList from '@/components/page-list';
 import ListActions from '@/components/list-actions';
-import AlertMessage from '@/components/alert/alert-message.component';
+import AlertMessage from '@/components/alert';
 
 const HomePageContainer = () => {
   return (

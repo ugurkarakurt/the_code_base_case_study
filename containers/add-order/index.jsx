@@ -1,11 +1,11 @@
 "use client"
 import React from 'react';
 import styles from "./styles.module.scss";
-import { OrdersProvider } from '@/context/order.context';
+import { OrdersProvider } from '@/context/order';
 import PageTitle from '@/components/page-title';
 import AddForm from '@/components/add-form';
 import { AlertProvider } from '@/context/alert';
-import AlertMessage from '@/components/alert/alert-message.component';
+import AlertMessage from '@/components/alert';
 
 const AddOrderPageContainer = () => {
   return (
