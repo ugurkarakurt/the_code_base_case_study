@@ -45,6 +45,10 @@ const Dropdown = ({ options, selectedOption, onOptionClicked, emptyIcon, icon })
         className={styles.dropdownToggler}
         whileTap={{ scale: 0.97 }}
         onClick={() => setIsOpen(!isOpen)}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.2 }}
+
       >
         <motion.div
           className={styles.iconWrapper}

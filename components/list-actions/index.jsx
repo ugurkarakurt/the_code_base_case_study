@@ -8,7 +8,7 @@ import { AlertContext } from '@/context/alert';
 
 const ListActions = () => {
   const router = useRouter();
-  const { setSortingType, sortedType } = useContext(OrdersContext);
+  const { filteredOrders, setSortingType, sortedType } = useContext(OrdersContext);
   const { showAlert } = useContext(AlertContext);
 
   const handleClickBySorterItems = (sortingValue) => setSortingType(sortingValue)
@@ -24,14 +24,21 @@ const ListActions = () => {
 
   return (
     <div className='listActionsContainer'>
-      <Dropdown
-        onOptionClicked={handleClickBySorterItems}
-        selectedOption={sortedType}
-        icon={DropdownIcon}
-        emptyIcon={DropdownIconEmpty}
-        children={'Results Per Page'}
-        options={[{ text: "Sırala (Son Eklenen)", sortingKey: "sortLastAdded" }, { text: "Sırala (Favori Sayısı)", sortingKey: "sortFavoriteCount" }]}
-      />
+      {filteredOrders.length > 0 && (
+        <Dropdown
+          onOptionClicked={handleClickBySorterItems}
+          selectedOption={sortedType}
+          icon={DropdownIcon}
+          emptyIcon={DropdownIconEmpty}
+          children={'Results Per Page'}
+          options={[
+            { text: "Sırala (Son Eklenen)", sortingKey: "sortLastAdded" },
+            { text: "Sırala (Favori Sayısı)", sortingKey: "sortFavoriteCount" }
+          ]}
+        />
+      )}
+
+
     </div>
   );
 }

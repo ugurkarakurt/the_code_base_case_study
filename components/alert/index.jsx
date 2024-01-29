@@ -1,4 +1,4 @@
-import { Fragment, useContext } from 'react';
+import { Fragment, useContext, useEffect } from 'react';
 import { AlertContext } from '@/context/alert';
 import styles from "./styles.module.scss";
 import { motion } from "framer-motion";

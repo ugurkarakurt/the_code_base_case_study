@@ -31,9 +31,6 @@ export const AlertProvider = ({ children }) => {
   };
 
   const hideAlert = () => {
-    if (timeoutID) {
-      clearTimeout(timeoutID);
-    }
     setAlert({ ...alert, isShow: false });
   };
 
