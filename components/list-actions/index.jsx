@@ -14,11 +14,12 @@ const ListActions = () => {
   const handleClickBySorterItems = (sortingValue) => setSortingType(sortingValue)
     .then(() => {
       router.replace(`/?sorting=${sortingValue}`);
-      showAlert({
-        isShow: true,
-        alertType: 'info',
-        alertContent: `Liste Tekrar Sıralandı`,
-      });
+      sortedType !== sortingValue &&
+        showAlert({
+          isShow: true,
+          alertType: 'info',
+          alertContent: `Liste Tekrar Sıralandı`,
+        });
     })
 
   return (

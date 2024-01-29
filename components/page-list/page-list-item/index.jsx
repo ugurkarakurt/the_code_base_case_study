@@ -10,6 +10,7 @@ import Image from 'next/image';
 import { OrdersContext } from '@/context/order';
 import { checkImage } from '@/utils/checkImage';
 import { AlertContext } from '@/context/alert';
+import { motion } from "framer-motion";
 
 const PageListItem = ({ order }) => {
   const { removeOrderFromList, increaseOrderFavoriteCount } = useContext(OrdersContext);
@@ -76,17 +77,30 @@ const PageListItem = ({ order }) => {
           </div>
         )}
         {isImageValid ? (
-          <img
-            className={`${styles.itemHeaderImage} bounce_animation`}
-            src={order.image_url}
-            alt='order_image'
-          />
+          <motion.div
+            className={styles.imageWrapper}
+            whileHover={{ scale: 1.2 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
+            <img
+              className={`${styles.itemHeaderImage}`}
+              src={order.image_url}
+              alt='order_image'
+            />
+          </motion.div>
+
         ) : (
-          <Image
-            className={`${styles.NoImagePlaceholder} bounce_animation`}
-            src={NoImagePlaceholder}
-            alt='fire_badge_icon'
-          />
+          <motion.div
+            className={styles.imageWrapper}
+            whileHover={{ scale: 1.2 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
+            <Image
+              className={`${styles.NoImagePlaceholder}`}
+              src={NoImagePlaceholder}
+              alt='fire_badge_icon'
+            />
+          </motion.div>
         )}
       </div>
       <div className={styles.itemBody}>
@@ -94,6 +108,7 @@ const PageListItem = ({ order }) => {
         <span className={styles.itemBodyFavoriteCount}>Toplam Favori Sayısı: {order.favorite_count}</span>
         <span className={styles.itemBodyUpdateDate}>Son güncelleme: {formattedDate}</span>
       </div>
+
     </div>
   );
 };

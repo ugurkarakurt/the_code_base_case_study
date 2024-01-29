@@ -1,10 +1,9 @@
 .alertMessageContainer {
   position: fixed;
-  right: 30px;
+  right: 0px;
   bottom: 30px;
   padding: 10px;
   font-size: 14px;
-  animation: slide-right 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 
   @media (max-width: 576px) {
     right: 0;
