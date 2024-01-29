@@ -8,7 +8,7 @@ import { AlertContext } from '@/context/alert';
 
 const ListActions = () => {
   const router = useRouter();
-  const { setSortingType, sortingKey } = useContext(OrdersContext);
+  const { setSortingType, sortedType } = useContext(OrdersContext);
   const { showAlert } = useContext(AlertContext);
 
   const handleClickBySorterItems = (sortingValue) => setSortingType(sortingValue)
@@ -25,7 +25,7 @@ const ListActions = () => {
     <div className='listActionsContainer'>
       <Dropdown
         onOptionClicked={handleClickBySorterItems}
-        selectedOption={sortingKey}
+        selectedOption={sortedType}
         icon={DropdownIcon}
         emptyIcon={DropdownIconEmpty}
         children={'Results Per Page'}

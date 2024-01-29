@@ -70,7 +70,7 @@ const AddForm = () => {
         }).then(() => {
           setTimeout(() => {
             router.push("/")
-          }, 1000);
+          }, 500);
         })
     }
   };

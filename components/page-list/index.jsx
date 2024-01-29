@@ -5,16 +5,16 @@ import { OrdersContext } from '@/context/order';
 import OrderLoading from './loading';
 
 const PageList = () => {
-  const { ordersMap } = useContext(OrdersContext);
+  const { filteredOrders } = useContext(OrdersContext);
 
   return (
     <div className={styles.pageListContainer}>
-      {!ordersMap.length ? (
+      {!filteredOrders.length ? (
         Array.from({ length: 8 }).map((_, index) => (
           <OrderLoading key={index} />
         ))
       ) : (
-        ordersMap.map((order) => (
+        filteredOrders.map((order) => (
           <Fragment key={order.id}>
             <PageListItem order={order} />
           </Fragment>
